@@ -1,0 +1,13 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script>
+  const socket = io('ws://localhost:4800')
+ 
+  //sending message to the server
+  socket.on('connect', (data)=>{
+        socket.on('welcome',(message)=>{
+            console.log(message); 
+        }); 
+        socket.emit('message', {data: 'message sent using socket.io'});
+    })
+
+</script>
